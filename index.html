@@ -11,7 +11,7 @@
     
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="BigBit standard for numeric format">
+        <meta name="description" content="Coccus App Home page">
         <meta name="author" content="Amit Kumar Gupta">
 
         <link href="static/css/bootstrap.min.css" rel="stylesheet">
@@ -20,7 +20,7 @@
         <script src="static/js/bootstrap.bundle.min.js"></script>
         <link href="static/css/jquery.bxslider.min.css" rel="stylesheet" />
 
-        <title>Manage contacts in better way</title>
+        <title>Coccus | Manage contacts in better way</title>
         <style>
             body{
                 background: url(static/img/network.svg) no-repeat center #4d4d4d;
@@ -77,6 +77,13 @@
             .flex-item {
                 text-align: center;
             }
+            .notice{
+                position: absolute;
+                width: 100vw;
+            }
+            .notice a{
+                color: sandybrown;
+            }
         </style>
     </head>
     <body>
@@ -111,8 +118,9 @@
                                 </div>
                                 <div>
                                     <footer class="small text-center">
-                                        <a href="">Privacy Policy</a> | 
-                                        <a href="">Term and Conditions</a>
+                                        <a href="privacypolicies.html">Privacy Policy</a> | 
+                                        <a href="termandconditions.html">Term and Conditions</a> | 
+                                        <a href="faq.html">FAQ</a>
                                     </footer>
                                 </div>
                             </div>
@@ -134,6 +142,14 @@
             <a href="">Privacy Policy</a> | 
             <a href="">Term and Conditions</a>
         </footer> -->
+        <div class="notice small text-white">
+            <div class="col-md-10">
+                    © 2018 Coccus App. All rights reserved. - Licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY NC ND 4.0</a> Read <a href="privacypolicies.html">Privacu Policy</a> for more detail.
+            </div>
+            <div class="col-md-2">
+                contact@coccus.app
+            </div>
+        </div>
         <cookie-alert></cookie-alert>
 
         <script src="static/js/riot.min.js"></script>
@@ -155,7 +171,21 @@
                     infiniteLoop: false,
                     pager: false
                 });
+                setBottomNotice();
+                $( window ).resize(function() {
+                    setBottomNotice();
+                });
             });
+
+            function setBottomNotice(){
+                if( $("body").prop("clientHeight") < 801){
+                    $(".notice").css("top", "800");
+                    $(".notice").css("bottom", "unset");
+                }else{
+                    $(".notice").css("top", "unset");
+                    $(".notice").css("bottom", "0");
+                }
+            }
         </script>
     </body>
 </html>
